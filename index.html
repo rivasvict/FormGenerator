@@ -1,12 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html ng-app='fc'>
         <head>
-		<script src='js/angular.js'></script>
-                <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-route.js"></script>
+		<!--<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>-->
+		<script src="js/angular.js"></script>
+		<script src="js/angular-route.js"></script>
                 <script src='js/builder.js'></script>
         </head>	
-        <body>
-                <div ng-view>
-                </div>
+        <body ng-controller='genCTRL'>
+		<div id='wrapping'>
+			<div id='form'>
+				<form name='htmlGen'>
+					<ul>
+						<li>
+							<span>Nombre de campo</span>
+							<input type='text' placeholder='Designe el nombre del campo'>
+							<span>Tipo de campo</span>
+							<select ng-model='typeC'>
+								<option value=""></option>
+								<option value="text">Text</option>
+							</select>
+							<input type='button' value='add' ng-click='add()'>
+						</li>
+						<li ng-repeat='element in controls' class='{{element.delet}}'>
+							<span>Nombre de campo</span>
+							<input type='text' placeholder='Designe el nombre del campo' ng-model='element.text'>
+							<span>Tipo de campo</span>
+                                                        <select ng-model='element.typeC'>
+                                                                <option value=""></option>
+                                                                <option value="text">Text</option>
+                                                        </select>
+                                                        <input type='button' value='add' ng-click='add()'>
+							<input type='button' value='delete' ng-click='del(element)'> 
+						</li>
+					</ul>
+				</form>
+			</div>
+		</div>
+		<div id='ht'><input type='button' value='text' ng-ckick='test()'>
+			<li ng-repeat='this in controls'>
+				&ltinput type="{{this.typeC}}" name="{{this.text}}"&gt
+			</li>
+		</div>
         </body>
 </html>
