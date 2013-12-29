@@ -6,7 +6,7 @@ function genCTRL($scope){
 	//$scope.sch=[];
 
 	$scope.add = function(element){
-		$scope.controls.push({text:'',delet:'false',typeC:'',select:$scope.sObject = [],tag:$scope.sch = []});
+		$scope.controls.push({text:'',delet:'false',typeC:'',select:$scope.sObject = []});
 	};
 
 	$scope.del = function(element){
@@ -19,10 +19,7 @@ function genCTRL($scope){
 	};
 
 	$scope.addSel = function(element){
-		element.select.push({text:'',delet:'false',done:'true'});
-		angular.forEach(element.select, function(th){
-			element.tag.push({tag:'<option name:"'+th.text+'">'+th.text+'</option>'});
-		});
+		element.select.push({text:'',delet:'false',done:'true',tag:'<option name="'+text+'">'+text+'</option>'});
 	};
   
 	$scope.delSel = function(selec,element){
@@ -40,10 +37,9 @@ function genCTRL($scope){
 			element.tag = [{}];
 			element.tag = [{tag:'<input type="'+element.typeC+'" name="'+element.text+'">'}];
 		}else{
-			element.tag = [{}];console.log(element);
-			element.tag = [{tag:'<select name="'+element.text+'">'}];
+			//console.log(element);
 			$scope.addSel(element);
-			element.tag.push({tag:'</select>'});
+			//element.tag.push({tag:'</select>'});
 		}
 	};
 
