@@ -26,15 +26,17 @@
                                                         		<input type='button' value='delete select' ng-click='delSel(selec,element)'>
 								</li>
 							</ul>
-                                                        <input type='button' value='add' ng-click='add()'>
+                                                        <input type='button' value='add' ng-click='add(element)'>
 							<input type='button' value='delete' ng-click='del(element)'> 
 						</li>
 					</ul>
 				</form>
 			</div>
 			<div id='ht'>
-				<tag ng-repeat='this in sch'>
-					{{this.tag}}<br>
+				<tag ng-repeat='this in controls'>
+					<tag ng-repeat='th in this.tag'>
+						{{th.tag}}<br>
+					</tag>
 				</tag>
 			</div>
 		</div>
