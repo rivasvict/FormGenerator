@@ -22,6 +22,8 @@
                                                         </select>
 							<ul>
 								<li ng-repeat='selec in element.select' class='{{selec.delet}}'>
+									<span>Name of option: </span>
+									<input type='text' palceholder='wrhite the name of this option' ng-model='selec.texto'>
 									<input type='button' value='add select' ng-click='addSel(element)'>
                                                         		<input type='button' value='delete select' ng-click='delSel(selec,element)'>
 								</li>
@@ -34,9 +36,14 @@
 			</div>
 			<div id='ht'>
 				<tag ng-repeat='this in controls'>
-					<tag ng-repeat='th in this.tag'>
-						{{th.tag}}<br>
-					</tag>
+					<sel ng-show="this.typeC == 'select'">
+						<span>&ltselect name='{{this.text}}'&gt</span><br>
+							<tag ng-repeat='th in this.select'>
+								&ltoption name='{{th.texto}}'&gt{{th.texto}}&lt/option&gt<br>
+							</tag>
+						<tag ng-show="this.typeC == 'select'">&lt/select&gt</tag>
+					</sel>
+					<span ng-show="this.typeC == 'text'">&ltinput type='text' name='{{this.text}}'&gt</span><br>
 				</tag>
 			</div>
 		</div>
