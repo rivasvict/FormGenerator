@@ -3,11 +3,9 @@ angular.module('fc', ['ngRoute']);
 function genCTRL($scope){
 
 	$scope.controls=[];
-	//$scope.sch=[];
 
 	$scope.add = function(element){
-		$scope.controls.push({text:'',delet:'false',typeC:'',select:$scope.sObject = [],tag:$scope.sch = []});
-		console.log($scope.controls);
+		$scope.controls.push({text:'',delet:'false',typeC:'',id:'',classi:'',select:$scope.sObject = []});
 	};
 
 	$scope.del = function(element){
@@ -21,8 +19,6 @@ function genCTRL($scope){
 
 	$scope.addSel = function(element){
 		element.select.push({texto:'',delet:'false',done:'true'});
-		//console.log($scope.controls);
-		//element.tag.push({tag:'<option name="'+ntxt+'">'+ntxt+'</option>'});
 	};
   
 	$scope.delSel = function(selec,element){
@@ -36,16 +32,11 @@ function genCTRL($scope){
 
 
 	$scope.scheme = function(element){
+		element.select = [];
 		if(element.typeC == 'text'){
-			element.tag = [{}];
-			element.tag = [{tag:'<input type="'+element.typeC+'" name="'+element.text+'">'}];
+
 		}else{
-			element.tag = [{tag:'<select name="'+element.text+'">'+element.text}];
-			element.tag.push({tag:'<option name="'+element.select.texto+'">'+element.select.texto+'</option>'});
-			//console.log(element);
-			//$scope.addSel(element,'');
 			element.select.push({texto:'',delet:'false',done:'true'});
-			//element.tag.push({tag:'</select>'});
 		}
 	};
 
