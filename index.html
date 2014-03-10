@@ -2,38 +2,49 @@
 <html ng-app='fc'>
         <head>
 		<!--<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>-->
+		<link href='css/bootstrap.min.css' type='text/css' rel='stylesheet'/>
+		<link href='css/bootstrap-theme.min.css' type='text/css' rel='stylesheet'/>
+		<link href='css/style.css' type='text/css' rel='stylesheet'/>
 		<script src="js/angular.js"></script>
 		<script src="js/angular-route.js"></script>
                 <script src='js/builder.js'></script>
+		<script src='js/bootstrap.min.js'></script>
         </head>	
         <body>
 		<div id='wrapping' ng-controller='genCTRL'>
-			<div id='form'><input type='button' value='Start creating' ng-click='add()'>
+			<div id='form'><input type='button' id="scr" value='Start creating' ng-click='add()' class="btn btn-success">
 				<form name='htmlGen' novalidate>
 					<ul>
 						<li ng-repeat='element in controls' class='{{element.delet}}'>
-							<span>Nombre de campo</span>
-							<input type='text' placeholder='Designe el nombre del campo' ng-model='element.text'>
-							<span>Tipo de campo</span>
-                                                        <select ng-model='element.typeC' ng-change='scheme(element)'>
-                                                                <option value=""></option>
-                                                                <option value="text">Text</option>
-								<option value="select">List box</option>
-                                                        </select>
-							<span>Id del elemento</span>
-							<input type='text' placeholder='Designe el id del elemento' ng-model='element.id'>
-							<span>Clase del elemento (css)</span>
-							<input type='text' placeholder='Designe la clase del elemento' ng-model='element.classi'>
+						<div class="mFields">
+							<span>Name of element</span>
+							<input type='text' placeholder='Insert the name of element' ng-model='element.text'>
+							<span>Type of element</span>
+                                                        	<select ng-model='element.typeC' ng-change='scheme(element)'>
+                                                                	<option value=""></option>
+                                                                	<option value="text">Text</option>
+									<option value="select">List box</option>
+                                                        	</select>
+							<span>Id Element</span>
+							<input type='text' placeholder='Insert the Id of the element' ng-model='element.id'>
+							<span>Class (css)</span>
+							<input type='text' placeholder='Insert class' ng-model='element.classi'>
 							<ul>
 								<li ng-repeat='selec in element.select' class='{{selec.delet}}'>
+								<div class='sFields'>
 									<span>Name of option: </span>
 									<input type='text' palceholder='wrhite the name of this option' ng-model='selec.texto'>
-									<input type='button' value='add select' ng-click='addSel(element)'>
-                                                        		<input type='button' value='delete select' ng-click='delSel(selec,element)'>
+									
+										<input type='button' value='+ Add Option' ng-click='addSel(element)' class="btn btn-warning">
+                                                        			<input type='button' value='- Delete select' ng-click='delSel(selec,element)' class="btn btn-danger">
+								</div>
 								</li>
 							</ul>
-                                                        <input type='button' value='add' ng-click='add(element)'>
-							<input type='button' value='delete' ng-click='del(element)'> 
+							<div class='btnDiv'>
+                                                        	<input type='button' value='+ Add' ng-click='add(element)' class="btn btn-warning">
+								<input type='button' value='- Delete' ng-click='del(element)' class="btn btn-danger"> 
+							</div>
+							</div>
 						</li>
 					</ul>
 				</form>
