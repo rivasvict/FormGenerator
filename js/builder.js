@@ -5,7 +5,9 @@ function genCTRL($scope){
 	$scope.controls=[];
 
 	$scope.add = function(element){
+		//$scope.controls.push({text:'',delet:'false',typeC:'',id:'',classi:'',select:$scope.sObject = []});
 		$scope.controls.push({text:'',delet:'false',typeC:'',id:'',classi:'',select:$scope.sObject = []});
+
 	};
 
 	$scope.del = function(element){
@@ -41,3 +43,8 @@ function genCTRL($scope){
 	};
 
 }
+
+/*
+ *
+ * 1. FINISH TO ADD FORM BUTTOMS 
+ * 2. CONDITIONING*/ 
